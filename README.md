@@ -1,2 +1,1 @@
-# phyrl
-PhyRL: Physics-Informed Model-Based Reinforcement Learning
+# PhyRL: Physics-Informed Model-Based Reinforcement Learning
