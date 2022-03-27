@@ -55,9 +55,9 @@ class ImgPhyEnv(gym.Env):
         
         self.action_space = spaces.Box(low=-1, high=1,
                                        shape=(2,1))
+        self.obs_shape = (32,32)
         self.observation_space = spaces.Box(low=0, high=255,
-                                            shape=(32,32))
-        
+                                            shape=self.obs_shape)
         # Initial state
         self.reset()
         # State-space representation
@@ -85,3 +85,14 @@ class ImgPhyEnv(gym.Env):
         done = False
         info = None
         return self.x[:2], rwd, done, info
+    
+    def render(self, mode="rgb_array"):
+        assert(mode=="rgb_array")
+        
+        # Draw
+        canvas = np.ones((32,32,3))
+        xcoord = int(self.x[0])
+        ycoord = int(self.x[1])
+        bif xcoord<=self.obs_shape[0] and ycoord<=self.obs_shape[1] and xcoord>=0 and ycoord>=0:
+            canvas[xcoord, ycoord,:] = 0
+        return canvas
