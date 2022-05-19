@@ -93,6 +93,6 @@ class ImgPhyEnv(gym.Env):
         canvas = np.ones((32,32,3))
         xcoord = int(self.x[0])
         ycoord = int(self.x[1])
-        bif xcoord<=self.obs_shape[0] and ycoord<=self.obs_shape[1] and xcoord>=0 and ycoord>=0:
+        if xcoord<=self.obs_shape[0] and ycoord<=self.obs_shape[1] and xcoord>=0 and ycoord>=0:
             canvas[xcoord, ycoord,:] = 0
         return canvas
